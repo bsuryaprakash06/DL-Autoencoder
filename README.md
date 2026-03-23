@@ -5,6 +5,29 @@ To develop a convolutional autoencoder for image denoising application.
 
 ## Problem Statement and Dataset
 
+<img width="655" height="325" alt="image" src="https://github.com/user-attachments/assets/b496381f-8494-4ffb-9e30-d647dfd050cc" />
+
+
+
+Problem Statement:
+
+Images often contain "noise" (random graininess or static) due to poor lighting or camera limitations, which can hide important details. The goal is to build a Convolutional Autoencoder that takes a noisy version of an MNIST digit as input and reconstructs a clean, denoised version of that same digit.
+
+Theory
+1. What is an Autoencoder?
+    An Autoencoder is a type of neural network that learns to compress data into a short "summary" and then reconstructs the original data from that summary. It consists of two main parts:
+   
+    Encoder: Compresses the input image into a lower-dimensional representation (latent space).
+    Decoder: Takes that compressed representation and expands it back into a full-sized image.
+
+3. Convolutional Layers:
+    Instead of using standard flat layers, we use Convolutional layers because they are much better at recognizing spatial patterns in images (like edges and curves).
+   
+     Encoder: Uses Conv2d layers to reduce the height and width of the image while increasing the number of filters.
+     Decoder: Uses ConvTranspose2d (often called Deconvolution) to "upsample" or grow the image back to its original $28 \times 28$ size.
+
+5. Image Denoising
+In a Denoising Autoencoder, we intentionally corrupt the input images by adding Gaussian Noise. The model is then forced to learn the underlying shapes of the digits so it can "ignore" the noise and output only the clean pixels.
 
 ## DESIGN STEPS
 
